@@ -76,8 +76,9 @@ class BotManController extends Controller
         });
         
         $botman->hears('hola|Hola|HOLA', function ($bot){
+            $user = $bot->getUser();
             //$bot->reply("Hola *Platzinauta!*,\n[Google](https://www.google.com/)\n Soy *Tiani* y quiero poner a prueba tus conocimientos.\nCuando estes listo escribe: *test*", ['parse_mode' => 'Markdown']);
-            $bot->reply("Hola *Platzinauta!*,\nSoy *Tuani* y quiero poner a prueba tus conocimientos.\nCuando estes listo escribe: *test*", ['parse_mode' => 'Markdown']);
+            $bot->reply("Hola ". $user->getFirstName() . "!,\nSoy *Tuani* y quiero poner a prueba tus conocimientos.\nCuando estes listo escribe: *test*", ['parse_mode' => 'Markdown']);
             
         });
 
